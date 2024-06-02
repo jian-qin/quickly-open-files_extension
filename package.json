@@ -34,5 +34,15 @@
     "eslint": "^8.57.0",
     "typescript": "^5.4.5",
     "ws": "^8.17.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jian-qin/quickly-open-files_extension.git"
+  },
+  "author": "jian-qin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jian-qin/quickly-open-files_extension/issues"
+  },
+  "homepage": "https://github.com/jian-qin/quickly-open-files_extension#readme"
 }
