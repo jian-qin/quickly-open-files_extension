@@ -6,7 +6,7 @@ Local Project Quick Open File
 
 ## Requirements
 
-Need to install the `quickly-open-files` plugin in the project
+Need to install the [quickly-open-files_vue](https://github.com/jian-qin/quickly-open-files_vue) plugin in the project
 
 ## Release Notes
 

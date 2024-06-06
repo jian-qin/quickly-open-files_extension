@@ -2,9 +2,10 @@
   "name": "quickly-open-files",
   "displayName": "Quickly open files",
   "description": "Local Project Quick Open File",
-  "version": "0.0.1",
+  "publisher": "jian-qin",
+  "version": "0.1.0",
   "engines": {
-    "vscode": "^1.89.0"
+    "vscode": "^1.90.0"
   },
   "categories": [
     "Other"
@@ -13,27 +14,42 @@
     "*"
   ],
   "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Quickly open files",
+      "properties": {
+        "quickly-open-files.port": {
+          "type": "number",
+          "default": 4444,
+          "description": "The port number of the server"
+        }
+      }
+    }
+  },
   "scripts": {
-    "vscode:prepublish": "pnpm run compile",
+    "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "pnpm run compile && pnpm run lint",
+    "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test",
-    "package": "pnpm vsce package --no-dependencies"
+    "test": "vscode-test"
+  },
+  "dependencies": {
+    "reconnecting-websocket": "^4.4.0",
+    "ws": "^8.17.0"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
-    "@types/vscode": "^1.89.0",
+    "@types/vscode": "^1.90.0",
     "@types/ws": "^8.5.10",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
     "@vscode/test-cli": "^0.0.9",
     "@vscode/test-electron": "^2.4.0",
     "eslint": "^8.57.0",
-    "typescript": "^5.4.5",
-    "ws": "^8.17.0"
+    "typescript": "^5.4.5"
   },
   "repository": {
     "type": "git",
