@@ -1,6 +1,7 @@
-import { workspace, window, Uri } from 'vscode';
+import { workspace, window, Uri, Range } from 'vscode';
 import WebSocket, { WebSocketServer } from 'ws';
 import ReconnectingWebSocket from 'reconnecting-websocket';
+import { bringVscodeToFront } from './tools';
 
 // 获取设置的端口号
 const port = workspace.getConfiguration('quickly-open-files').get<number>('port')!;
@@ -69,5 +70,13 @@ clientWs.addEventListener('message', (res) => {
 	if (!rootUrlList.some(rootUrl => url.startsWith(rootUrl))) {
 		return;
 	}
-	window.showTextDocument(Uri.file(url));
+	bringVscodeToFront();
+	const reg = /:(\d+):(\d+)$/;
+	const fileUrl = url.replace(reg, '');
+	const position = url.match(reg) || { 1: '1', 2: '1' };
+	const line = Number(position[1]) - 1;
+	const column = Number(position[2]) - 1;
+	window.showTextDocument(Uri.file(fileUrl), {
+		selection: new Range(line, column, line, column),
+	});
 });
