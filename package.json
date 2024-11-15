@@ -3,7 +3,7 @@
   "displayName": "Quickly open files",
   "description": "Local Project Quick Open File",
   "publisher": "jian-qin",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "engines": {
     "vscode": "^1.90.0"
   },
